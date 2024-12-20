@@ -1,0 +1,226 @@
+@import url(https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    background-color: #1c2a3a;
+}
+
+.bubbles {
+    position: relative;
+    display: flex;
+}
+
+.bubbles span {
+    width: 30px;
+    height: 30px;
+    background: #4fc3dc;
+    margin: 0 4px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 10px #4fc3dc44,
+        0 0 50px #4fc3dc,
+        0 0 100px #4fc3dc;
+    animation: animate 15s linear infinite;
+    animation-duration: calc(125s /var(--i));
+}
+
+.bubbles span:nth-child(even) {
+    background: #ff2d75;
+    box-shadow: 0 0 0 10px #ff2d7544,
+        0 0 50px #ff2d75,
+        0 0 100px #ff2d75;
+}
+
+@keyframes animate {
+    0% {
+        transform: translateY(100vh) scale(0);
+    }
+
+    100% {
+        transform: translateY(-10vh) scale(1);
+    }
+}
+
+.container {
+    height: 450px;
+    width: 500px;
+    background-image: linear-gradient(#d5ffff, #00a9d3);
+    position: relative;
+    padding: 4.5rem;
+    border-radius: 30px 30px 5px 5px;
+    box-shadow: 0 0 .5rem rgba(0, 0, 0, .5);
+    text-align: center;
+}
+
+.container::before {
+    content: '';
+    background: linear-gradient(greenyellow);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    margin: -15px;
+}
+
+h2 {
+    padding: 15px;
+    margin: 2 2 40px;
+    background-color: #c0e6f0;
+    border-radius: 10px;
+}
+
+h3 {
+    padding: 0px;
+    margin: 1 1 10px;
+    background-color:  #90e0ef;
+    border-radius: 10px;
+}
+
+h4 {
+    font-size: .1.3rem;
+    padding: 1px;
+    margin: 2 2 40px;
+    background-color: #90e0ef;
+    border-radius: 10px;
+}
+
+.level-label {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.current-level {
+    color: #333;
+}
+
+
+.top {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 1rem 0;
+}
+
+.single span:last-of-type {
+    font-weight: 700;
+}
+
+
+
+.input-section .word {
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.input-section input {
+    width: 90%;
+    padding: .5rem;
+    font-size: 1.2rem;
+    text-align: center;
+    outline: none;
+}
+
+.text {
+    margin-top: 2rem;
+}
+
+button {
+    margin-top: 2rem;
+    font-size: 1rem;
+    padding: .5rem 2rem;
+    background-color: #02ccfe;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-weight: 500;
+    cursor: pointer;
+    box-shadow: 0 0 .4rem rgba(0, 0, 0, .5);
+    border-radius: .5rem;
+}
+
+button {
+    box-shadow: 0 0 5px cyan, 0 0 25 cyan;
+}
+
+button:hover {
+    box-shadow: 0 0 5px cyan,
+        0 0 25px cyan,
+        0 0 50px cyan,
+        0 0 100px cyan, 0 0 200px cyan;
+}
+
+.hidden {
+    display: none;
+}
+
+.game-ended {
+    margin-top: 1rem;
+}
+
+.correct {
+    background-color: #00d100;
+}
+
+.incorrect {
+    background-color: #ff3333;
+}
+
+.text span {
+    padding: .15rem .2rem;
+    color: #fff;
+    margin-top: 0.3rem;
+    display: inline-block;
+}
+
+.level-completion-message {
+    font-size: 2rem;
+    color: #fff;
+    text-align: center;
+    background-color: rgba(0, 150, 136, 0.9);
+    padding: 1rem;
+    border-radius: 8px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000; /* Make sure it appears above other content */
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8);  /* Semi-transparent background */
+    display: none;  /* Hidden by default */
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+    font-size: 2rem;
+    z-index: 100;  /* Make sure it's on top */
+}
+
+.next-level-btn, .restart-level-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.game-ended div {
+    margin-top: 10px;
+    font-size: 16px;
+}
